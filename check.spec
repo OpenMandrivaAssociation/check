@@ -89,6 +89,6 @@ rm -rf %{buildroot}
 %{_libdir}/libcheck.a
 %{_includedir}/check.h
 %{_libdir}/pkgconfig/check.pc
-%{_infodir}/check.info.bz2
+%{_infodir}/check.info*
 
 
