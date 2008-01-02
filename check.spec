@@ -13,6 +13,7 @@ Summary:	A unit test framework for C
 Group:		System/Libraries
 URL:		http://check.sourceforge.net/
 Source:		http://prdownloads.sourceforge.net/check/%{name}-%{version}.tar.bz2
+BuildRoot:	%{_tmppath}/%{name}-%{version}
 
 %description
 Check is a unit test framework for C. It features a simple interface for
