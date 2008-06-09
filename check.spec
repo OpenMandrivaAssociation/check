@@ -62,9 +62,13 @@ rm -rf %{buildroot}
 mv %{buildroot}%{_datadir}/doc/%{name} \
     %{buildroot}%{_datadir}/doc/%{libname}-devel-%{version}
 
+%if %mdkversion < 200900
 %post -n %{libname} -p /sbin/ldconfig
+%endif
 
+%if %mdkversion < 200900
 %postun -n %{libname} -p /sbin/ldconfig
+%endif
 
 %post -n %{libname}-devel
 %_install_info %{name}.info
