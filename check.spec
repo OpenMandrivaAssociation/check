@@ -1,6 +1,6 @@
 %define name	check
 %define version	0.9.5
-%define release	%mkrel 3
+%define release	%mkrel 4
 %define	major	0
 %define	libname	%mklibname %{name} %{major}
 %define	libname2007 %mklibname %{name} 0.9.3
