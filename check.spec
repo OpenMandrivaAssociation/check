@@ -1,6 +1,6 @@
 %define name	check
 %define version	0.9.6
-%define release	%mkrel 1
+%define release	%mkrel 2
 %define	major	0
 %define	libname	%mklibname %{name} %{major}
 %define	develname %mklibname %{name} -d
@@ -39,10 +39,11 @@ Summary:	Development files for %{name}
 Group:		Development/C
 Requires:	%{libname} = %{version}
 Provides:	%{name}-devel = %{version}-%{release}
+Provides:	lib%{name}-devel = %{version}-%{release}
 Requires(post): info-install
 Requires(preun):info-install
 Obsoletes:	%{name}
-Obsoletes:	%{libname}-devel
+Obsoletes:	%mklibname -d %name 0
 Conflicts: %libname2007-devel
 
 %description -n	%{develname}
