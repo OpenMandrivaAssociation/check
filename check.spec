@@ -4,8 +4,8 @@
 
 Summary:	A unit test framework for C
 Name:		check
-Version:	0.9.8
-Release:	4
+Version:	0.9.10
+Release:	1
 License:	LGPLv2+
 Group:		System/Libraries
 Url:		http://check.sourceforge.net/
@@ -57,10 +57,12 @@ mv %{buildroot}%{_datadir}/doc/%{name} \
 %{_libdir}/libcheck.so.%{major}*
 
 %files -n %{devname}
+%{_bindir}/checkmk
 %{_datadir}/doc/%{devname}-%{version}
 %{_datadir}/aclocal/check.m4
 %{_libdir}/libcheck.so
 %{_includedir}/check.h
+%{_includedir}/check_stdint.h
 %{_libdir}/pkgconfig/check.pc
 %{_infodir}/check.info*
-
+%{_mandir}/man1/checkmk.1*
