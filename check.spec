@@ -1,3 +1,5 @@
+%define __noautoreq '.*/bin/awk|.*/bin/gawk'
+
 %define	major	0
 %define	libname	%mklibname %{name} %{major}
 %define	devname %mklibname %{name} -d
@@ -5,7 +7,7 @@
 Summary:	A unit test framework for C
 Name:		check
 Version:	0.9.10
-Release:	1
+Release:	2
 License:	LGPLv2+
 Group:		System/Libraries
 Url:		http://check.sourceforge.net/
