@@ -42,6 +42,7 @@ This package contains development files for %{name}.
 
 %prep
 %setup -q
+autoreconf -fiv
 
 %build
 %configure2_5x \
