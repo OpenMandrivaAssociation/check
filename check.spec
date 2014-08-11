@@ -6,8 +6,8 @@
 
 Summary:	A unit test framework for C
 Name:		check
-Version:	0.9.10
-Release:	8
+Version:	0.9.14
+Release:	1
 License:	LGPLv2+
 Group:		System/Libraries
 Url:		http://check.sourceforge.net/
@@ -45,7 +45,7 @@ This package contains development files for %{name}.
 autoreconf -fiv
 
 %build
-%configure2_5x \
+%configure \
 	--disable-static
 %make
 
