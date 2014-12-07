@@ -7,7 +7,7 @@
 Summary:	A unit test framework for C
 Name:		check
 Version:	0.9.14
-Release:	1
+Release:	2
 License:	LGPLv2+
 Group:		System/Libraries
 Url:		http://check.sourceforge.net/
