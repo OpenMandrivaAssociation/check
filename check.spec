@@ -4,10 +4,12 @@
 %define	libname	%mklibname %{name} %{major}
 %define	devname %mklibname %{name} -d
 
+%define _disable_rebuild_configure 1
+
 Summary:	A unit test framework for C
 Name:		check
-Version:	0.9.14
-Release:	4
+Version:	0.10.0
+Release:	1
 License:	LGPLv2+
 Group:		System/Libraries
 Url:		http://check.sourceforge.net/

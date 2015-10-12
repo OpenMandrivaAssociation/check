@@ -1,2 +1,4 @@
-sources:
+removed_sources:
   check-0.9.14.tar.gz: 4b79e2d485d014ddb438e322b64235347d57b0ff
+sources:
+  check-0.10.0.tar.gz: 35d3a53446aea7b21a770faedb358d0fc7cba76d
