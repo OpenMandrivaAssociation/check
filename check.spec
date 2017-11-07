@@ -1,19 +1,19 @@
 %define __noautoreq '.*/bin/awk|.*/bin/gawk'
 
-%define	major	0
-%define	libname	%mklibname %{name} %{major}
-%define	devname %mklibname %{name} -d
+%define	major 0
+%define libname %mklibname %{name} %{major}
+%define devname %mklibname %{name} -d
 
 %define _disable_rebuild_configure 1
 
 Summary:	A unit test framework for C
 Name:		check
-Version:	0.10.0
+Version:	0.12.0
 Release:	1
 License:	LGPLv2+
 Group:		System/Libraries
-Url:		http://check.sourceforge.net/
-Source0:	http://prdownloads.sourceforge.net/check/%{name}-%{version}.tar.gz
+Url:		https://libcheck.github.io/check/
+Source0:	https://github.com/libcheck/check/releases/download/%{version}/%{name}-%{version}.tar.gz
 
 %description
 Check is a unit test framework for C. It features a simple interface for
@@ -22,24 +22,24 @@ in a separate address space, so Check can catch both assertion failures and
 code errors that cause segmentation faults or other signals.  The output from
 unit tests can be used within source code editors and IDEs.
 
-%package -n	%{libname}
+%package -n %{libname}
 Summary:	C testing framework
 Group:		System/Libraries
 
-%description -n	%{libname}
+%description -n %{libname}
 Check is a unit test framework for C. It features a simple interface for
 defining unit tests, putting little in the way of the developer. Tests are run
 in a separate address space, so Check can catch both assertion failures and
 code errors that cause segmentation faults or other signals. The output from
 unit tests can be used within source code editors and IDEs.
 
-%package -n	%{devname}
+%package -n %{devname}
 Summary:	Development files for %{name}
 Group:		Development/C
 Requires:	%{libname} = %{version}
 Provides:	%{name}-devel = %{version}-%{release}
 
-%description -n	%{devname}
+%description -n %{devname}
 This package contains development files for %{name}.
 
 %prep
