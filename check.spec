@@ -9,7 +9,7 @@
 Summary:	A unit test framework for C
 Name:		check
 Version:	0.12.0
-Release:	1
+Release:	2
 License:	LGPLv2+
 Group:		System/Libraries
 Url:		https://libcheck.github.io/check/
