@@ -1,6 +1,6 @@
-%define __noautoreq '.*/bin/awk|.*/bin/gawk'
+%define __requires_exclude '.*/bin/awk|.*/bin/gawk'
 
-%define	major 0
+%define major 0
 %define libname %mklibname %{name} %{major}
 %define devname %mklibname %{name} -d
 
@@ -8,12 +8,14 @@
 
 Summary:	A unit test framework for C
 Name:		check
-Version:	0.12.0
-Release:	2
+Version:	0.13.0
+Release:	1
 License:	LGPLv2+
 Group:		System/Libraries
 Url:		https://libcheck.github.io/check/
 Source0:	https://github.com/libcheck/check/releases/download/%{version}/%{name}-%{version}.tar.gz
+BuildRequires:	texlive
+BuildRequires:	graphviz
 
 %description
 Check is a unit test framework for C. It features a simple interface for
@@ -49,10 +51,10 @@ autoreconf -fiv
 %build
 %configure \
 	--disable-static
-%make
+%make_build
 
 %install
-%makeinstall
+%make_install
 
 # move documentation
 mv %{buildroot}%{_datadir}/doc/%{name} \
