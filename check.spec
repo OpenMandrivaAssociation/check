@@ -14,7 +14,7 @@ License:	LGPLv2+
 Group:		System/Libraries
 Url:		https://libcheck.github.io/check/
 Source0:	https://github.com/libcheck/check/releases/download/%{version}/%{name}-%{version}.tar.gz
-BuildRequires:	texlive
+BuildRequires:	texinfo
 BuildRequires:	graphviz
 
 %description
