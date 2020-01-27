@@ -8,7 +8,7 @@
 
 Summary:	A unit test framework for C
 Name:		check
-Version:	0.13.0
+Version:	0.14.0
 Release:	1
 License:	LGPLv2+
 Group:		System/Libraries
