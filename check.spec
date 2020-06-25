@@ -16,7 +16,7 @@
 Summary:	A unit test framework for C
 Name:		check
 Version:	0.15.0
-Release:	1
+Release:	2
 License:	LGPLv2+
 Group:		System/Libraries
 Url:		https://libcheck.github.io/check/
@@ -76,17 +76,47 @@ This package contains development files for %{name}.
 %prep
 %autosetup -p1
 
+# Fix detection of various time-related function declarations
+sed -e '/DECLS(\[a/s|)|,,,[AC_INCLUDES_DEFAULT\n[#include <time.h>\n #include <sys/time.h>]]&|' \
+    -i configure.ac
+
+# Improve the info directory entry
+# See https://github.com/libcheck/check/pull/273
+sed -e 's/\(Check: (check)\)Introduction./\1.               A unit testing framework for C./' \
+    -i doc/check.texi
+
+# Get rid of version control files
+find . -name .cvsignore -delete 
 autoreconf -fiv
 export CONFIGURE_TOP="$(pwd)"
 %if %{with compat32}
 mkdir build32
 cd build32
-%configure32
+%configure32 --disable-timeout-tests
+
+# Get rid of undesirable hardcoded rpaths; workaround libtool reordering
+# -Wl,--as-needed after all the libraries.
+sed -e 's|^hardcode_libdir_flag_spec=.*|hardcode_libdir_flag_spec=""|g' \
+    -e 's|^runpath_var=LD_RUN_PATH|runpath_var=DIE_RPATH_DIE|g' \
+    -e 's|CC="\(.*g..\)"|CC="\1 -Wl,--as-needed"|' \
+    -i libtool
+
 cd ..
 %endif
 mkdir build
 cd build
-%configure
+%configure --disable-timeout-tests
+# Get rid of undesirable hardcoded rpaths; workaround libtool reordering
+# -Wl,--as-needed after all the libraries.
+sed -e 's|^hardcode_libdir_flag_spec=.*|hardcode_libdir_flag_spec=""|g' \
+    -e 's|^runpath_var=LD_RUN_PATH|runpath_var=DIE_RPATH_DIE|g' \
+    -e 's|CC="\(.*g..\)"|CC="\1 -Wl,--as-needed"|' \
+    -i libtool
+
+# Do not try to apply -Werror=format-security to the test code.  Many tests
+# compute format strings on the fly, which causes that flag to trigger errors.
+# It's just test code; the library itself builds with the error enabled.
+sed -i 's/ -Werror=format-security//g' tests/Makefile
 
 %build
 %if %{with compat32}
