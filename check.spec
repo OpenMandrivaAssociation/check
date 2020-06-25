@@ -15,8 +15,8 @@
 
 Summary:	A unit test framework for C
 Name:		check
-Version:	0.14.0
-Release:	2
+Version:	0.15.0
+Release:	1
 License:	LGPLv2+
 Group:		System/Libraries
 Url:		https://libcheck.github.io/check/
@@ -74,7 +74,8 @@ This package contains development files for %{name}.
 %endif
 
 %prep
-%setup -q
+%autosetup -p1
+
 autoreconf -fiv
 export CONFIGURE_TOP="$(pwd)"
 %if %{with compat32}
