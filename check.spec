@@ -15,7 +15,7 @@
 
 Summary:	A unit test framework for C
 Name:		check
-Version:	0.15.1
+Version:	0.15.2
 Release:	1
 License:	LGPLv2+
 Group:		System/Libraries
