@@ -21,6 +21,11 @@ License:	LGPLv2+
 Group:		System/Libraries
 Url:		https://libcheck.github.io/check/
 Source0:	https://github.com/libcheck/check/releases/download/%{version}/%{name}-%{version}.tar.gz
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	libtool-base
+BuildRequires:	slibtool
+BuildRequires:	make
 BuildRequires:	texinfo
 BuildRequires:	graphviz
 
