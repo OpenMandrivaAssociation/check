@@ -23,7 +23,6 @@ Url:		https://libcheck.github.io/check/
 Source0:	https://github.com/libcheck/check/releases/download/%{version}/%{name}-%{version}.tar.gz
 BuildRequires:	autoconf
 BuildRequires:	automake
-BuildRequires:	libtool-base
 BuildRequires:	slibtool
 BuildRequires:	make
 BuildRequires:	texinfo
@@ -80,7 +79,6 @@ This package contains development files for %{name}.
 
 %prep
 %autosetup -p1
-
 # Fix detection of various time-related function declarations
 sed -e '/DECLS(\[a/s|)|,,,[AC_INCLUDES_DEFAULT\n[#include <time.h>\n #include <sys/time.h>]]&|' \
     -i configure.ac
@@ -99,25 +97,11 @@ mkdir build32
 cd build32
 %configure32 --disable-timeout-tests
 
-# Get rid of undesirable hardcoded rpaths; workaround libtool reordering
-# -Wl,--as-needed after all the libraries.
-sed -e 's|^hardcode_libdir_flag_spec=.*|hardcode_libdir_flag_spec=""|g' \
-    -e 's|^runpath_var=LD_RUN_PATH|runpath_var=DIE_RPATH_DIE|g' \
-    -e 's|CC="\(.*g..\)"|CC="\1 -Wl,--as-needed"|' \
-    -i libtool
-
 cd ..
 %endif
 mkdir build
 cd build
 %configure --disable-timeout-tests
-# Get rid of undesirable hardcoded rpaths; workaround libtool reordering
-# -Wl,--as-needed after all the libraries.
-sed -e 's|^hardcode_libdir_flag_spec=.*|hardcode_libdir_flag_spec=""|g' \
-    -e 's|^runpath_var=LD_RUN_PATH|runpath_var=DIE_RPATH_DIE|g' \
-    -e 's|CC="\(.*g..\)"|CC="\1 -Wl,--as-needed"|' \
-    -i libtool
-
 # Do not try to apply -Werror=format-security to the test code.  Many tests
 # compute format strings on the fly, which causes that flag to trigger errors.
 # It's just test code; the library itself builds with the error enabled.
