@@ -1,0 +1,10 @@
+--- a/doc/check.texi	2026-08-16 22:39:54.970457240 +0200
++++ b/doc/check.texi	2026-08-16 22:39:54.987405571 +0200
+@@ -2255,6 +2255,7 @@
+ 
+ @verbatim
+ cmake -Dcheck_ROOT=${INSTALL_PREFIX}
++@end verbatim
+ 
+ Then use Check in your @file{CMakeLists.txt} like this:
+ 

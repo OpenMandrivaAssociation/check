@@ -16,11 +16,12 @@
 Summary:	A unit test framework for C
 Name:		check
 Version:	0.15.2
-Release:	2
+Release:	3
 License:	LGPLv2+
 Group:		System/Libraries
 Url:		https://libcheck.github.io/check/
 Source0:	https://github.com/libcheck/check/releases/download/%{version}/%{name}-%{version}.tar.gz
+Patch0:		check-0.15.2-fix-cmake-verbatim.patch
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	slibtool
