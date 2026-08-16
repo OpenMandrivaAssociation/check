@@ -16,7 +16,7 @@
 Summary:	A unit test framework for C
 Name:		check
 Version:	0.15.2
-Release:	3
+Release:	4
 License:	LGPLv2+
 Group:		System/Libraries
 Url:		https://libcheck.github.io/check/
@@ -28,6 +28,8 @@ BuildRequires:	slibtool
 BuildRequires:	make
 BuildRequires:	texinfo
 BuildRequires:	graphviz
+# find-debuginfo runs gdb-add-index, which execs gdb
+BuildRequires:	gdb
 
 %description
 Check is a unit test framework for C. It features a simple interface for
